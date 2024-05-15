@@ -1,33 +1,37 @@
 # Generalized Linear Models
 
----
-
 # Deviances
 
 - Standard measures of model performance are ***deviances:***
-    
+
     $$
+    \begin{align}
     D = -2\log \dfrac{\text{likelihood of the fitted model}}{\text{likelihood of the saturated model}}
+    \end{align}
     $$
-    
+
     - The saturated model is the best model possible
         - If you were to model the $y_i$’s themselves which is the best thing you can do
 - For Logistic Regression:
-    
+
     $$
+    \begin{align}
     D =-2\sum_{i=1}^k y_i \log \dfrac{\hat y_i}{y_i} + (n_i-y_i) \log \dfrac{n_i - \hat y_i}{n_i - y_i}
+    \end{align}
     $$
-    
+
     - Where:
         - $\hat y_i = n_ip_i$ is the model fit for $y_i$
         - For saturated model: $\hat p_i = \dfrac{y_i}{n_i}, \hat y_i = y_i$
         - $n$ is the number of cases for which covariates coincide, and $k$ is the number of such groups
 - For Poisson Regression:
-    
+
     $$
+    \begin{align}
     D =-2\sum_{i=1}^n \left ( y_i \log \dfrac{y_i}{\hat y_i} - (y_i - \hat y_i) \right )
+    \end{align}
     $$
-    
+
     - Where:
         - $\hat y_i = \exp \lbrace b_0 + b_1x_{i1} + .... + b_kx_{ik} \rbrace$
 
